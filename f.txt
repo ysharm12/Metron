@@ -1,45 +1,33 @@
-
-Console Error
-
-
-Error: spawn python ENOENT
-
-src/components/trigger/TriggerForm.tsx (71:15) @ handleSubmit
-
-
-  69 |       if (!response.ok) {
-  70 |         const errorMessage = result.message || result.error || 'Failed to start campaign';
-> 71 |         throw new Error(errorMessage);
-     |               ^
-  72 |       }
-  73 |       
-  74 |       setSuccess('Campaign started successfully! Processing in the backend...');
-Call Stack
-1
-
-handleSubmit
-src/components/trigger/TriggerForm.tsx (71:15)
-
-
-
-Console Error
-
-
-Error details: "Error: spawn python ENOENT\n    at handleSubmit (webpack-internal:///(app-pages-browser)/./src/components/trigger/TriggerForm.tsx:62:23)"
-
-src/components/trigger/TriggerForm.tsx (88:17) @ handleSubmit
-
-
-  86 |       // Show detailed error in console for debugging
-  87 |       if (err instanceof Error) {
-> 88 |         console.error('Error details:', err.stack);
-     |                 ^
-  89 |       }
-  90 |     } finally {
-  91 |       setIsSubmitting(false);
-Call Stack
-4
-
-Show 3 ignore-listed frames
-handleSubmit
-src/components/trigger/TriggerForm.tsx (88:17)
+ ○ Compiling /api/trigger ...
+ ✓ Compiled /api/trigger in 675ms (809 modules)
+Looking for report file at: /Users/ysharm12/Documents/Metron/app/backend/output/campaign_report.html
+File not found, returning exists=false
+ GET /api/check-report?t=1741532510472 200 in 256ms
+Created temporary data file: /Users/ysharm12/Documents/Metron/app/backend/temp_campaign_data_1741532510923.json
+Form data: {
+  "trigger_type": "New_Campaign",
+  "campaign_name": "sdf",
+  "goal": "sdf",
+  "audience": "sdf",
+  "budget": 1000,
+  "requested_date": "2025-03-09",
+  "test_mode": false
+}
+Current working directory: /Users/ysharm12/Documents/Metron/app/frontend
+Backend directory: /Users/ysharm12/Documents/Metron/app/backend
+Python script path: /Users/ysharm12/Documents/Metron/app/backend/execute_campaign.py
+Python script exists
+Executing Python script...
+Executing Python in directory: /Users/ysharm12/Documents/Metron/app/backend
+Command: python execute_campaign.py /Users/ysharm12/Documents/Metron/app/backend/temp_campaign_data_1741532510923.json
+Python process error: spawn python ENOENT
+API error: [Error: spawn python ENOENT] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn python',
+  path: 'python',
+  spawnargs: [Array]
+}
+Python process exited with code -2
+Temporary file deleted after error
+ POST /api/trigger 500 in 733ms
